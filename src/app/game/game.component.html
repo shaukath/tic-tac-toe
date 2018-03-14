@@ -1,13 +1,12 @@
 <div class="container">
   <div class="row">
       <div class="col-md-8"> 
-          <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-list cols="3" rowHeight="100px" class="game-area">
               <mat-grid-tile
-                  *ngFor="let tile of tiles"
-                  [colspan]="tile.cols"
-                  [rowspan]="tile.rows"
-                  [style.background]="tile.color">
-                {{tile.text}}
+                  *ngFor="let block of gameService.blocks; let i = index; "
+                  (click) = "playerClick(i)">
+                <!-- {{tile.text}} -->
+                <i class="material-icons">{{block.symbol}}</i>
               </mat-grid-tile>
             </mat-grid-list>
             
@@ -15,6 +14,8 @@
 
       <div class="col-md-4"> 
         <h3>Score Board:</h3>
+        <i class="material-icons">person</i>
+        <i class="material-icons">android</i>
         </div>
 
   </div>

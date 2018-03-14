@@ -1,0 +1,9 @@
+.game-area {
+    margin-top: 25px;
+	width: 450px;
+}
+
+::ng-deep mat-grid-tile {
+    cursor: pointer;
+    background: lightblue;
+}

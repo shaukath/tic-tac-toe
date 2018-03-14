@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from './game.service';
 
 @Component({
   selector: 'app-game',
@@ -8,16 +9,30 @@ import { Component, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
     tiles: Array<any> = [];
-  constructor() { }
+  constructor( public gameService: GameService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-    this.tiles = [
-      {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-      {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-      {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-      {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-    ];
+  playerClick(i) {
+    if (this.gameService.turn === 0) {
+      this.gameService.blocks[i].setValue('person');
+    } else {
+      this.gameService.blocks[i].setValue('android');
+    }
+
+    this.changeTurn();
+  }
+
+  changeTurn() {
+    const player = this.gameService.changeTurn();
+
+    if ( player === 1 ) { // Bot Turn
+      this.botTurn();
+    }
+    }
+
+  botTurn() {
+    alert('Bot');
   }
 
 }
