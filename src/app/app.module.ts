@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
 
 
 
@@ -15,7 +21,8 @@ import { GameService } from './game/game.service';
     GameComponent
   ],
   imports: [
-    BrowserModule, MatGridListModule
+    BrowserModule, MatGridListModule, MatSnackBarModule, BrowserAnimationsModule, MatButtonModule
+
   ],
   providers: [GameService],
   bootstrap: [AppComponent]

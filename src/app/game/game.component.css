@@ -1,9 +1,17 @@
 .game-area {
     margin-top: 25px;
-	width: 450px;
+	/* width: 450px; */
+}
+
+.marg-bottom {
+    margin-bottom: 10px;
 }
 
 ::ng-deep mat-grid-tile {
     cursor: pointer;
     background: lightblue;
+}
+
+.icon-font{
+    font-size: 50px;
 }

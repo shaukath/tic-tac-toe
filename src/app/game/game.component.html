@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row">
-      <div class="col-md-8"> 
+  <div class="row justify-content-around">
+      <div class="col-md-6"> 
           <mat-grid-list cols="3" rowHeight="100px" class="game-area">
               <mat-grid-tile
-                  *ngFor="let block of gameService.blocks; let i = index; "
+                  *ngFor="let block of gameService.blocks; let i = index; trackBy: trackByFn"
                   (click) = "playerClick(i)">
                 <!-- {{tile.text}} -->
-                <i class="material-icons">{{block.symbol}}</i>
+                <i class="material-icons icon-font">{{block.symbol}}</i>
               </mat-grid-tile>
             </mat-grid-list>
             
@@ -14,8 +14,20 @@
 
       <div class="col-md-4"> 
         <h3>Score Board:</h3>
-        <i class="material-icons">person</i>
-        <i class="material-icons">android</i>
+        <div>
+
+          <i class="material-icons">person</i> : {{ gameService.players[0].score }}
+        </div>
+        <div>
+
+          <i class="material-icons">android</i> : {{ gameService.players[1].score }}
+        </div>
+
+        <div>
+          Draw : {{ gameService.draw }}
+        </div>
+        <button mat-raised-button color="warn" (click)="newGame()" class="marg-bottom"><i class="material-icons">undo</i> Reset</button> 
+        <button mat-raised-button color="primary" (click)="newGame()">New Game <i class="material-icons">add_circle_outline</i></button>
         </div>
 
   </div>
